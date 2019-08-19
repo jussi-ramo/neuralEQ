@@ -8,7 +8,8 @@
 % Written by Jussi Rämö, August 15, 2019
 
 %% User-set target gains - CHANGE THESE TO EXPERIMENT w/ NGEQ
-targetGains = [12 -12 12 -12 12 -12 12 -12 12 -12]';
+targetGains = [12 -12 12 -12 12 -12 12 -12 12 -12]';	% Zig Zag gains
+% targetGains = randi([-12 12],10,1); 					% Random gains
 
 
 fs = 44100;					% Sample rate
@@ -36,7 +37,7 @@ dfreq = fs/len;
 splen = length(spectr);
 frq = linspace(0,dfreq*(splen-1),splen);
 
-figure;
+fig = figure;
 semilogx(frq,spectr,'k','LineWidth',2);
 hold on;
 plot(fc,targetGains,'ko','MarkerSize',10)
@@ -52,3 +53,4 @@ xlabel('Frequency (Hz)')
 ylabel('Magnitude (dB)')
 ylim([-25 25])
 legend('NGEQ response','Target gains','Filter gains','location','northeastoutside')
+fig.Position(3) = 800;
