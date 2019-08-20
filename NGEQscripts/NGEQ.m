@@ -20,7 +20,7 @@ end
 %% Initialize outputs and variables
 g = zeros(10,1);			% Scaled input gains [-1 1]
 o = zeros(20,1);			% Output of the hidden layer
-gopt = zeros(10,1);			% Scaled output gains [-1 1]
+go = zeros(10,1);			% Scaled output gains [-1 1]
 filterGains = zeros(10,1);	% Output gains in dB
 
 %% Load neural net parameters needed in Eqs. (15)-(18)
@@ -29,5 +29,5 @@ load NGEQ_parameters.mat
 %% Filter gain calculation
 g = 2.*(targetGains - xmin)./(xmax-xmin) - 1;	% Eq. (15)
 o = tanh(W1*g + theta1);						% Eq. (16)
-gopt = W2*o + theta2;							% Eq. (17)
-filterGains = (tmax-tmin).*(gopt + 1)/2 + tmin;	% Eq. (18)
+go = W2*o + theta2;								% Eq. (17)
+filterGains = (tmax-tmin).*(go + 1)/2 + tmin;	% Eq. (18)
