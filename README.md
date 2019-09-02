@@ -15,7 +15,7 @@ The band filter coefficients can then be quickly and easily computed using close
 This work turns, for the first time, the accurate graphic equalization design into a feedforward calculation without matrix inversion or iterations. The filter gain control using the neural network reduces the computing time by 99.6% in comparison to the least-squares design method it is imitating and contributes an approximation error of less than 0.1 dB. The resulting neurally controlled graphic equalizer will be highly useful in various audio and music processing applications, which require time-varying equalization. 
 
 ## Instructions to run the Matlab Scripts
-The Matlab scripts for the Neurally controlled graphic equalizer can be found in the folder NGEQ3scripts. The folder includes the following files:
+The Matlab scripts for the Neurally controlled graphic equalizer can be found in the folder NGEQscripts. The folder includes the following files:
 
     - GEQfilter.m
     - NGEQ_MatlabNetworkObj.mat
