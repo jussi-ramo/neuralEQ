@@ -17,11 +17,15 @@ This work turns, for the first time, the accurate graphic equalization design in
 ## Instructions to tun the Matlab Scripts
 
 ### Run the example
-To run an example design of the neurally controlled graphic equalizer, run the file __plotNGEQ__, which designs and plots the EQ with given user-set target gains (zig zag by default).
+To run an example design of the neurally controlled graphic equalizer, run the file *plotNGEQ*, which designs and plots the EQ with given user-set target gains (zig zag by default).
 
-The script uses __NGEQ__, which loads the neural net parameters (__NGEQ_parameters__), to run the filter optimization calculation. Then the __GEQfilter__ takes these optimized filter gains and designs the needed equalization band filters using __pareq2__.
+The script uses *NGEQ*, which loads the neural net parameters (*NGEQ_parameters*), to run the filter optimization calculation. Then the *GEQfilter* takes these optimized filter gains and designs the needed equalization band filters using *pareq2*.
 
 ### Other matlab files
-__NGEQ_MatlabNetworkObj__ includes Matlab's net object that has all the required information for Matlab to run the neural network. To use the net object, just give the object the user-set target gains and it outputs the optimized filter gains, e.g., filterGains = net(12*ones(10,1)).
+*NGEQ_MatlabNetworkObj* includes Matlab's net object that has all the required information for Matlab to run the neural network. To use the net object, just give the object the user-set target gains and it outputs the optimized filter gains, e.g., 
 
-__NGEQfilterAudio.m__ can be used to filter audio by giving it the input audio sample and the user-set target gains.
+```matlab
+filterGains = net(12*ones(10,1)).
+```
+
+*NGEQfilterAudio.m* can be used to filter audio by giving it the input audio sample and the user-set target gains.
