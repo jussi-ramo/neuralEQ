@@ -13,3 +13,15 @@ The band filter coefficients can then be quickly and easily computed using close
 ![Fig. 2.Cascade graphic EQ structure](./figs/CascadeGEQ.png) 
 
 This work turns, for the first time, the accurate graphic equalization design into a feedforward calculation without matrix inversion or iterations. The filter gain control using the neural network reduces the computing time by 99.6% in comparison to the least-squares design method it is imitating and contributes an approximation error of less than 0.1 dB. The resulting neurally controlled graphic equalizer will be highly useful in various audio and music processing applications, which require time-varying equalization. 
+
+## Instructions to tun the Matlab Scripts
+
+### Run the example
+To run an example design of the neurally controlled graphic equalizer, run the file __plotNGEQ__, which designs and plots the EQ with given user-set target gains (zig zag by default).
+
+The script uses __NGEQ__, which loads the neural net parameters (__NGEQ_parameters__), to run the filter optimization calculation. Then the __GEQfilter__ takes these optimized filter gains and designs the needed equalization band filters using __pareq2__.
+
+### Other matlab files
+__NGEQ_MatlabNetworkObj__ includes Matlab's net object that has all the required information for Matlab to run the neural network. To use the net object, just give the object the user-set target gains and it outputs the optimized filter gains, e.g., filterGains = net(12*ones(10,1)).
+
+__NGEQfilterAudio.m__ can be used to filter audio by giving it the input audio sample and the user-set target gains.
