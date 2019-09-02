@@ -38,3 +38,7 @@ filterGains = net(12*ones(10,1)).
 ```
 
 `NGEQfilterAudio.m` can be used to filter audio by giving it the input audio sample and the user-set target gains.
+
+```matlab
+out = NGEQfilterAudio(in,targetGains).
+```
