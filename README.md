@@ -8,7 +8,7 @@ The prediction is implemented with a feedforward neural network having a hidden 
 
 ![Fig. 1. Neural Network](./figs/neuralNet.png) 
 
-The band filter coefficients can then be quickly and easily computed using closed-form formulas. The cascade filter structure used is shown in Fig. 2, where $G_1, G_2, ..., G_M$ are the optimized filter gains calculated using the neural network, adn $G_0$ is the product of the scaling coefficients of the EQ band filters.
+The band filter coefficients can then be quickly and easily computed using closed-form formulas. The cascade filter structure used is shown in Fig. 2, where $G_1, G_2, ..., G_M$ are the optimized filter gains calculated using the neural network, and $G_0$ is the product of the scaling coefficients of the EQ band filters.
 
 ![Fig. 2.Cascade graphic EQ structure](./figs/CascadeGEQ.png) 
 
@@ -26,15 +26,15 @@ The Matlab scripts for the Neurally controlled graphic equalizer can be found in
     - plotNGEQ.m
 
 ### Run the example
-To run an example design of the neurally controlled graphic equalizer, run the file *plotNGEQ*, which designs and plots the EQ with given user-set target gains (zig zag by default).
+To run an example design of the neurally controlled graphic equalizer, run the file `plotNGEQ`, which designs and plots the EQ with given user-set target gains (zig zag by default).
 
-The script uses *NGEQ*, which loads the neural net parameters (*NGEQ_parameters*), to run the filter optimization calculation. Then the *GEQfilter* takes these optimized filter gains and designs the needed equalization band filters using *pareq2*.
+The script uses `NGEQ`, which loads the neural net parameters (`NGEQ_parameters`), to run the filter optimization calculation. Then the `GEQfilter` takes these optimized filter gains and designs the needed equalization band filters using `pareq2`.
 
 ### Other matlab files
-*NGEQ_MatlabNetworkObj* includes Matlab's net object that has all the required information for Matlab to run the neural network. To use the net object, just give the object the user-set target gains and it outputs the optimized filter gains, e.g., 
+`NGEQ_MatlabNetworkObj` includes Matlab's net object that has all the required information for Matlab to run the neural network. To use the net object, just give the object the user-set target gains and it outputs the optimized filter gains, e.g., 
 
 ```matlab
 filterGains = net(12*ones(10,1)).
 ```
 
-*NGEQfilterAudio.m* can be used to filter audio by giving it the input audio sample and the user-set target gains.
+`NGEQfilterAudio.m` can be used to filter audio by giving it the input audio sample and the user-set target gains.
